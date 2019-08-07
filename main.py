@@ -1,4 +1,3 @@
-from pprint import pprint
 from kubernetes import config as k8s_config
 from kubernetes import client as k8s_client
 
@@ -10,7 +9,7 @@ def main():
     k8s_core_client = K8SCoreV2Api()
 
     response = k8s_core_client.list_namespaced_pod("api")
-    pprint(response)
+    print(response)
 
 if __name__ == "__main__":
     main()
