@@ -4,7 +4,7 @@ from kubernetes   import client as k8s_client
 from kubernetes   import watch  as k8s_watch
 
 
-class K8SCoreV2Api(k8s_client.CoreV1Api):
+class K8SCoreV1Api(k8s_client.CoreV1Api):
 
     def watch_namespaced_pod(self, name, namespace, **kwargs):
 
@@ -84,7 +84,7 @@ class K8SCoreV2Api(k8s_client.CoreV1Api):
 
 def main():
     k8s_config.load_incluster_config()
-    k8s_core_client = K8SCoreV2Api()
+    k8s_core_client = K8SCoreV1Api()
 
     watch = k8s_watch.Watch()
 
