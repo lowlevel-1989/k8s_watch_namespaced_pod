@@ -1,6 +1,7 @@
-from kubernetes import config as k8s_config
-from kubernetes import client as k8s_client
-from kubernetes import watch  as k8s_watch
+from future.utils import iteritems
+from kubernetes   import config as k8s_config
+from kubernetes   import client as k8s_client
+from kubernetes   import watch  as k8s_watch
 
 
 class K8SCoreV2Api(k8s_client.CoreV1Api):
@@ -77,7 +78,7 @@ class K8SCoreV2Api(k8s_client.CoreV1Api):
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
+                                        collection_formats=collection_formats)[0]
 
 
 
