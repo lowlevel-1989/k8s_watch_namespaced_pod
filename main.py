@@ -1,8 +1,9 @@
-from future.utils import iteritems
 from kubernetes   import config as k8s_config
 from kubernetes   import client as k8s_client
 from kubernetes   import watch  as k8s_watch
 
+# python 2 and python 3 compatibility library
+from six          import iteritems
 
 class K8SCoreV1Api(k8s_client.CoreV1Api):
 
