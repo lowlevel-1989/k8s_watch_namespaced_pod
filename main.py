@@ -7,7 +7,7 @@ from six          import iteritems
 
 class K8SCoreV1Api(k8s_client.CoreV1Api):
 
-    def watch_namespaced_pod(self, name, namespace, **kwargs):
+    def watch_namespaced_pod(self, namespace, name, **kwargs):
 
         all_params = ['name', 'namespace', 'pretty', 'watch']
         all_params.append('async_req')
@@ -89,7 +89,7 @@ def main():
 
     watch = k8s_watch.Watch()
 
-    for e in watch.stream(k8s_core_client.watch_namespaced_pod, name="pod-name", namespace="api"):
+    for e in watch.stream(k8s_core_client.watch_namespaced_pod, namespace="api", name="pod-name"):
         print(e)
         #watch.stop()
 
